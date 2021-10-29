@@ -1,6 +1,5 @@
 <script lang="ts">
 	export let count: number;
-	export const checkValue: string = count === 0 ? "" : count > 0 ? "positive" : "negative"
 	const modifyCounter = (value: number): number => {
 		return count += value;
 	};
@@ -9,7 +8,7 @@
 
 <main>
 	<h1>Counter app</h1>
-	<h3 class={checkValue} >counter: {count}</h3>
+	<h3 class={count === 0 ? "" : count > 0 ? "positive" : "negative"} >counter: {count}</h3>
 	<button class="inc" on:click={() => modifyCounter(1)}>+</button>
 	<button class="inc" on:click={() => modifyCounter(-1)}>-</button>
 	<button class="inc" on:click={reset}>reset</button>
